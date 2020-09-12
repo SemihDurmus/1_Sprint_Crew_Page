@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    font-size: 10px;
+}
 
 body {
+    width: 100%;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    flex-direction: column;
     background-image: url("./img/bacco.jpg");
     background-size: cover;
     background-origin: center;
@@ -19,60 +26,49 @@ body {
 }
 
 header, footer{
-    height: 8vh;
+    height: 6rem;
+    width: 100%;
     background-color:#3BA09E;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
-header img {
-    height: 4vh;
+#logo {
+    height: 4rem;
 }
 
-header h2{
+#hamburger {
+    height: 4rem;
+    width: 6rem;
+}
+
+header h2 {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 3vw;
+    font-size: 4rem;
     position: relative;
     color: #c7ecee;
     letter-spacing: 2px;
 }
+ header a {
+     text-decoration: none;
+ }
 
-header h2 span {
-    font-family: 'Work Sans', sans-serif;
-    color: white;
-    font-size: 15px;
-    vertical-align: middle;
-}
-
-/* header h2:hover {
-    color:#FFF;
-    text-shadow: 0 0 7px #fff,
-                 0 0 10px #fff;
-} */
-
-/* header h2:after {
-    content: "";
-    position: absolute;
-    bottom:0;
-    left:-25%;
-    width: 150%;
-    border-bottom: 2px solid #c4c4c4;
-    
-    transform: scaleX(0.1);
-} */
 
 main {
-    height: 84vh;
     width: 100%; 
     display: grid;
-    grid-template-rows: 1fr 7fr 7fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    padding: 3rem;
+    grid-template-rows: 3fr 4fr 4fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "hero hero hero" 
                          "Jessica William Rick"
-                         "Casey Sarah Kirk";
+                         "Casey Sarah Kirk"
+                         "space space space";
+    justify-items: center;
+    align-items: center ;
 }
 
 .hero {
@@ -82,11 +78,174 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3vw;
+    font-size: 4rem;
+    font-weight: bold;
 }
-.photo {
-    border: 1px solid white;
+
+.photo-box {
+    padding: 1rem;
+    margin-top: 2rem;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.photo img{
-    height: 30vh;
+.photo-box img{
+    width: 80%;
+    filter: grayscale(100%);
+    border-radius: 50%;
 }
+
+.photo-box:hover  img {
+    filter: none;
+}
+
+.photo-box:hover .name{
+    color:#FFF;
+    text-shadow: 0 0 7px #fff,
+                 0 0 9px #fff;
+    border: 1px solid #fff;
+}
+
+.card {
+    width: 65%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.name {
+    width: 100%;
+    background-color: #353b48;
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid transparent;
+
+}
+
+.position {
+    width: 100%;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1.5rem;
+    color:#000;
+    background-color: #FFFFFF;
+    padding: 0.5rem;
+}
+
+.more {
+    cursor: pointer;
+    border:none;
+    width: 12rem;
+    padding: 0.3rem;
+    font-family: 'Oswald', sans-serif;
+    color: #FFFFFF;
+    background-color: #353b48;
+    margin-top: 1rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.more::after {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(211, 84, 0,1.0);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 350ms ease-in-out; 
+
+}
+
+.more:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+footer{
+    justify-content: center;
+    align-items: center;
+    word-spacing: 1rem;
+}
+
+footer p {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+}
+
+footer p span {
+    color: #000;
+    font-size: 1.8rem;
+}
+
+
+@media screen and (max-width: 1100px) and (min-width: 769px) {
+    html {
+        font-size: 8px;;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+    html {
+        font-size: 6px;;
+    }
+
+    main {
+        padding: 2rem;
+        grid-template-rows: 2fr 4fr 4fr 4fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "hero hero" 
+                             "Jessica William"
+                             "Rick Casey"
+                             "Sarah Kirk"
+                             "space space";
+    }
+}
+
+
+@media screen and (max-width: 481px) {
+    html {
+        font-size: 6px;;
+    }
+
+    main {
+        padding: 2rem;
+        grid-template-rows: 1fr 3fr 3fr 3fr 3fr 3fr 3fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "hero" 
+                             "Jessica"
+                             "William"
+                             "Rick" 
+                             "Casey"
+                             "Sarah" 
+                             "Kirk"
+                             "space";
+    }
+
+    .photo-box img{
+        width: 65%;
+    }
+
+    .name {
+        font-size: 3.5rem;
+        font-family: 'Oswald', sans-serif;
+        border: 1px solid transparent;
+    
+    }
+    
+    .position {
+        font-size: 2.5rem;
+    }
+    
+    .more {
+        font-size: 2.5rem;
+    }
+
+}
+
