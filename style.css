@@ -23,6 +23,7 @@ body {
     background-origin: center;
     background-color: rgba(0,0,0,0.5);
     background-blend-mode: multiply;
+    background-attachment: fixed;
 }
 
 header, footer{
@@ -245,6 +246,11 @@ footer p span {
     
     .more {
         font-size: 2.5rem;
+    }
+
+    footer p span {
+        display:block;
+        text-align: center;
     }
 
 }
