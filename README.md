@@ -1,4 +1,4 @@
-https://semihdurmus.github.io/1_Sprint_Crew_Page/.
+https://semihdurmus.github.io/Sprint_1_Crew_Page/
 
 # Sprint 1
 
